@@ -1,0 +1,9 @@
+artifacts
+coverage
+node_modules
+build
+dist
+artifacts
+scripts
+webpack
+jest.config.js

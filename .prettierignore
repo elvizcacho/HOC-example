@@ -1,0 +1,32 @@
+dist/
+node_modules/
+deployment/
+artifacts/
+coverage/
+build/
+
+# editor config files
+.vscode/
+.idea/
+
+# Configuration files
+.npmrc
+.editorconfig
+.gitattributes
+.gitignore
+.prettierignore
+.stylelintrc
+
+# Font files
+*.ttf
+*.svg
+*.woff
+*.eot
+*.woff2
+*.otf
+
+# Other files
+*.md
+*.png
+*.snap
+*.zip

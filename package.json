@@ -1,0 +1,122 @@
+{
+  "name": "juapp-frontend",
+  "version": "1.0.0",
+  "description": "juapp frontend",
+  "main": "index.js",
+  "engines": {
+    "node": "14.16.0",
+    "npm": "7.6.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production --config webpack/prod.config.js",
+    "build:analyse": "webpack --mode production --config webpack/prod.config.js --env.analyse",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.test.ts",
+    "prettier": "prettier --write './src/**/*.{ts,tsx}'",
+    "start": "npm run watch",
+    "test": "TZ=UTC jest",
+    "test:ci": "TZ=UTC jest --ci --reporters=default --reporters=jest-junit --coverage",
+    "watch": "npm-run-all --parallel \"watch:* {1}\" --",
+    "watch:lint": "chokidar src/**/*.tsx src/**/**/*.tsx src/**/*.ts src/**/**/*.ts -c \"npm run lint\" --initial --verbose",
+    "watch:server": "webpack-dev-server --mode development --open --hot --config webpack/dev.config.js"
+  },
+  "keywords": [
+    "react",
+    "juapp",
+    "frontend"
+  ],
+  "author": "elvizcacho@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/enzyme": "^3.10.4",
+    "@types/jest": "^25.0.0",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "chokidar": "^3.3.0",
+    "chokidar-cli": "^2.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.3.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prefer-arrow": "^1.1.7",
+    "eslint-plugin-react": "^7.19.0",
+    "fetch-mock": "^9.0.0-beta.2",
+    "file-loader": "^6.0.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.3",
+    "html-webpack-plugin": "^4.5.2",
+    "husky": "^4.0.0",
+    "jest": "^25.0.0",
+    "jest-junit": "^10.0.0",
+    "lint-staged": "^10.0.0",
+    "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
+    "semver": "^7.3.2",
+    "style-loader": "^1.0.1",
+    "ts-jest": "^25.3.0",
+    "ts-loader": "^7.0.5",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3",
+    "webpack": "^5.0.0-beta.17",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@material-ui/core": "^4.8.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.47",
+    "@material-ui/pickers": "^3.2.8",
+    "@types/draft-js": "^0.10.40",
+    "clsx": "^1.0.4",
+    "core-js": "^3.5.0",
+    "date-fns": "^2.11.1",
+    "date-fns-tz": "^1.1.3",
+    "draft-js": "^0.11.7",
+    "draft-js-export-html": "^1.4.1",
+    "draft-js-import-html": "^1.4.1",
+    "juapp-api-client": "^2.12.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.get": "^4.4.2",
+    "prettier": "^2.2.1",
+    "qs": "^6.9.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.2.0",
+    "typeface-roboto": "0.0.75",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty"
+    }
+  },
+  "lint-staged": {
+    "*.{gql,graphql,js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run prettier"
+    ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": ".",
+    "outputName": "artifacts/test-results.xml",
+    "uniqueOutputName": "false",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  }
+}

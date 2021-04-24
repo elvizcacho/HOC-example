@@ -1,0 +1,17 @@
+#IDEs
+.idea
+
+#System files
+.DS_Store
+
+node_modules
+build
+coverage
+artifacts
+.npmrc
+
+
+/docker/postgres/pgdata
+
+
+
