@@ -2,13 +2,15 @@ import * as React from 'react'
 import { FunctionComponent, useEffect, useState } from 'react'
 import get from 'lodash.get'
 
+interface IGraphQLResponse {
+    card: {
+        text: string
+    }
+}
+
 const graphql = ({ query }) => {
     console.log(query)
-    const [value, setValue] = useState({
-        card: {
-            text: null,
-        },
-    })
+    const [value, setValue] = useState<IGraphQLResponse>(null)
     const [isLoading, setIsLoading] = useState(true)
 
     // simulates http request
